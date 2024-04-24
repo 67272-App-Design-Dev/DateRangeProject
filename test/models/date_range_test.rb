@@ -11,31 +11,31 @@ class DateRangeTest < ActiveSupport::TestCase
       assert !normal.respond_to?(:end_date=)
     end
 
-    should "show that date range created with normal start and end dates" do
+    should "show that date range initialized with normal start and end dates" do
       normal = DateRange.new(2.years.ago.to_date, 1.year.ago.to_date)
       assert_equal normal.start_date, 2.years.ago.to_date
       assert_equal normal.end_date, 1.year.ago.to_date
     end
 
-    should "show that when dates are reversed, it's corrected in init()" do
+    should "show that when dates are reversed, it's corrected in initialize()" do
       reversed = DateRange.new(1.year.ago.to_date, 2.years.ago.to_date)
       assert_equal reversed.start_date, 2.years.ago.to_date
       assert_equal reversed.end_date, 1.year.ago.to_date
     end
 
-    should "show that if only one date given and in the future, start date set to current" do
+    should "show that if only one date given and in the future, start date set to current in initialize()" do
       future = DateRange.new(2.years.from_now.to_date)
       assert_equal future.start_date, Date.current
       assert_equal future.end_date, 2.years.from_now.to_date
     end
 
-    should "show that if only one date given and in the past, end date set to current" do
+    should "show that if only one date given and in the past, end date set to current in initialize()" do
       past = DateRange.new(2.years.ago.to_date)
       assert_equal past.start_date, 2.years.ago.to_date
       assert_equal past.end_date, Date.current
     end
 
-    should "show that if only one date given and in the present, range starts/ends today" do
+    should "show that if only one date given and in the present, initialize() sets range to start/end today" do
       present = DateRange.new(Date.current)
       assert_equal present.start_date, Date.current
       assert_equal present.end_date, Date.current
