@@ -32,12 +32,15 @@ class DateRange
     end
   end
 
+  # Setters for start_date and end_date
   attr_reader :start_date, :end_date
 
+  # Check if a date is included in the range
   def include?(date)
     (@start_date..@end_date).cover?(date)
   end
 
+  # Count the number of days in the range
   def number_of_days
     (end_date - start_date).to_i
   end
