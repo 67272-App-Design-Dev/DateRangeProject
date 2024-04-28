@@ -6,6 +6,7 @@ module Exceptions
   class NoDatabaseExists < Error; end
 
   # a custom exception when no dates passed to date range
+  # usage: assert_raise Exceptions::NoDatesGiven do DateRange.new(); end
   class NoDatesGiven < Error; end
 
   # a custom exception when too many arguments passed
