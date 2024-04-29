@@ -37,7 +37,21 @@ class DateRange
 
   # Check if a date is included in the range
   def include?(date)
-    (@start_date..@end_date).cover?(date)
+    # having used .include? in phases, we apply it here:
+    # (start_date..end_date).include?(date)
+    
+    #.cover? faster is faster than .include? so:
+    # (start_date..end_date).cover?(date)
+    
+    # this basic approach also works:
+    start_date <= date && end_date >= date
+    # check(some_date)
+    # if (d >= @start_date) and (d <= @end_date)
+    #   return true
+    # else
+    #   return false
+    # end
+
   end
 
   # Count the number of days in the range
