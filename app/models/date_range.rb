@@ -32,7 +32,7 @@ class DateRange
     end
   end
 
-  # Setters for start_date and end_date
+  # Getters for start_date and end_date
   attr_reader :start_date, :end_date
 
   # Check if a date is included in the range
